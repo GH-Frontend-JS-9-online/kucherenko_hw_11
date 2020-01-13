@@ -21,6 +21,7 @@ async function SignUp() {
     })
     .then((response) => {
         if (response.status === 200){
+           alert ("Acount created");
             window.location.href = './login.html'
         }
         else{
@@ -57,6 +58,7 @@ async function Login() {
     console.log(response.headers.get('x-auth-token'))
     if (response.status === 200) {
         localStorage.setItem('token', response.headers.get('x-auth-token'))
+        alert("You successfully loged")
         window.location.href = 'logout.html'
     }
     else{
@@ -106,28 +108,6 @@ try{
     })
 }catch(err){}
 
-
- // window.onload = () => {
-//     if (window.location == 'logout.html'){
-//             alert("Hello ")
-//         async function Logout() {
-//             let response = await fetch('http://localhost:3000/api/users/current', {
-//                 headers: {
-//                 "x-access-token" : localStorage.token
-//                 }
-//             }) 
-//             .then( (response) => {
-//                 if(response.status != 200){
-//                     window.location = './login.html'
-//                 } 
-//             })
-//         }
- 
-//        Logout();
-//     console.log(response);
-
-//     } 
-// }
 
 try{
     document.getElementById('logout').addEventListener('submit', (e) => {
